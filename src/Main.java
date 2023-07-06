@@ -10,61 +10,64 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Stack;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main{
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        String checking; //"."인지 체크하는 String
+        int N = Integer.parseInt(br.readLine());
         StringTokenizer st;
-        String s;
-        Stack<Character> stack = new Stack<>();
+        String str;
+        StringBuilder sb = new StringBuilder();
+        LinkedList<Integer> arr = new LinkedList<>();
 
-        Loop1:
-        while(true){
-            stack.clear();
-            checking = br.readLine();
-            if(checking.equals("."))
-                break;
-            else {
-                st  = new StringTokenizer(checking,".");
-                s = st.nextToken();
-                for(int i=0; i<s.length(); i++){
-                    if(s.charAt(i)=='('){
-                        stack.push('(');
+        for(int i=0; i<N; i++){
+            st = new StringTokenizer(br.readLine()," ");
+            str = st.nextToken();
+            switch(str){
+                case "push" :
+                    int num = Integer.parseInt(st.nextToken());
+                    arr.add(num);
+                    break;
+
+                case "front" :
+                    if (arr.size()>0)
+                        sb.append(arr.get(0)+"\n");
+                    else
+                        sb.append(-1+"\n");
+                    break;
+
+                case "back" :
+                    if(arr.size()>0)
+                        sb.append(arr.get(arr.size()-1)+"\n");
+                    else
+                        sb.append(-1+"\n");
+                    break;
+
+                case "size":
+                    sb.append(arr.size()+"\n");
+                    break;
+
+                case "empty":
+                    if(arr.size()>0) {
+                        sb.append(0+ "\n");
                     }
-                    else if(s.charAt(i)=='['){
-                        stack.push('[');
+                    else{
+                        sb.append(1+"\n");
                     }
+                    break;
 
-                    else if(s.charAt(i)==']'){
-                        if(stack.size()>0&&stack.peek()=='[')
-                            stack.pop();
-                        else  {
-                            stack.push('n');
-                            break;
-                        }
-
+                case "pop":
+                    if(arr.size()==0){
+                        sb.append(-1+"\n");
+                        ;
                     }
-                    else if(s.charAt(i)==')') {
-                        if (stack.size()>0&&stack.peek() == '(')
-                            stack.pop();
-                        else {
-                            stack.push('n');
-                            break;
-
-                        }
+                    else {
+                        sb.append(arr.get(0)+"\n");
+                        arr.remove(0);
                     }
-
-                }
-                if(stack.size()==0){
-                    sb.append("yes"+"\n");
-                }
-                else{
-                    sb.append("no" + "\n");
-                }
+                    break;
             }
 
         }
