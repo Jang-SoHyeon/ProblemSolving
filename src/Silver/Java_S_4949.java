@@ -1,4 +1,4 @@
-/*
+package Silver;/*
     if(stack.size()>0&&stack.peek()=='[')과
     if(stack.peek()=='['&&stack.size()>0)의 차이와
     StringTokneizer를 쓰면 "." 전에 분류가 되어서 .을 종료 조건으로 하려면 아래와 같이 써야된다는 것을 알았다.

@@ -1,4 +1,4 @@
-/*
+package Silver;/*
     시간 복잡도가 O(1)이었던 문제
     처음에는 ArrayList로 배열을 만들어 풀었지만 시간초과로 실패
     ArrayList 역시 큐처럼 사용할 수 있지만 삽입 삭제가 많아서 LinkedList보다 효율이 좋지 않다.
