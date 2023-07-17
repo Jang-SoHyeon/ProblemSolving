@@ -6,3 +6,5 @@
 public void ex(){  
   System.out.println("짜잔");    
 }  
+
+** 코테 준비
