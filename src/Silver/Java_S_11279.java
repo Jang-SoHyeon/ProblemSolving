@@ -1,6 +1,6 @@
 package Silver;
 
-//heap 구현해봄
+//최대 힙 구현함
 //(주의!)ArrayList에 null을 넣으면 ArrayList.size() = 1
 import java.io.BufferedReader;
 import java.io.IOException;
